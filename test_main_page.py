@@ -1,16 +1,44 @@
+import time
+import pytest
 from selenium.webdriver.common.by import By
 from .pages.main_page import MainPage
+from .pages.login_page import LoginPage
+from .pages.locators import MainPageLocators, LoginPageLocators
 
 # запуск теста
 # pytest -v --tb=line --language=en test_main_page.py
 
+@pytest.mark.main_page
 def test_guest_can_go_to_login_page(browser):
-    link = "http://selenium1py.pythonanywhere.com/"
+    link = MainPageLocators.LINK
     page = MainPage(browser, link)  # создаем объект, передаем параметры browser и ссылку
     page.open()  # открываем браузер
     page.go_to_login_page()
+
+@pytest.mark.main_page
 def test_guest_should_see_login_link(browser):
-    link = "http://selenium1py.pythonanywhere.com/"
+    link = MainPageLocators.LINK
     page = MainPage(browser, link)  # создаем объект, передаем параметры browser и ссылку
     page.open()  # открываем браузер
     page.should_be_login_link()
+
+@pytest.mark.login_page
+def test_should_be_login_url(browser):
+    link = LoginPageLocators.LINK
+    page = LoginPage(browser, link)
+    page.open()
+    page.should_be_login_url()
+
+@pytest.mark.login_page
+def test_should_be_login_form(browser):
+    link = LoginPageLocators.LINK
+    page = LoginPage(browser, link)
+    page.open()
+    page.should_be_login_form()
+
+@pytest.mark.login_page
+def test_should_be_register_form(browser):
+    link = LoginPageLocators.LINK
+    page = LoginPage(browser, link)
+    page.open()
+    page.should_be_register_form()
