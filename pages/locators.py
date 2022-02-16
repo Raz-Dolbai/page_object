@@ -12,3 +12,17 @@ class LoginPageLocators():
     LINK = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
     LOGIN_FORM = (By.ID, 'login_form')
     REGISTER_FORM = (By.ID, 'register_form')
+
+class ProductPageLocators():
+    """Класс где хранятся селекторы элементов Product Page"""
+    LINK = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    LINK2 = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"
+    ADD_BOOK_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
+    NAME_IN_CARD = (By.CSS_SELECTOR, 'div.product_main h1')
+    PRICE_IN_CARD = (By.CSS_SELECTOR, 'p.price_color')
+    MESSAGE_ADD_BOOK = (By.CSS_SELECTOR, 'div#messages')
+    PRICE_IN_MESSAGE = (By.CSS_SELECTOR, '.alert-info strong')
+    NAME_IN_MESSAGE = (By.CSS_SELECTOR, '.alert-success strong')
+    All_TEXT_IN_MESSAGE = (By.CSS_SELECTOR, 'div#messages strong')
+
+
