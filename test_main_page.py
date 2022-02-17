@@ -3,8 +3,7 @@ import pytest
 from selenium.webdriver.common.by import By
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
-from .pages.product_page import ProductPage
-from .pages.locators import MainPageLocators, LoginPageLocators, ProductPageLocators
+from .pages.locators import MainPageLocators, LoginPageLocators, ProductPageLocators, PromoLocators
 
 
 # запуск теста
@@ -29,38 +28,7 @@ def test_guest_should_see_login_link(browser):
     page.should_be_login_link()
 
 
-@pytest.mark.login_page
-def test_should_be_login_url(browser):
-    link = LoginPageLocators.LINK
-    page = LoginPage(browser, link)
-    page.open()
-    page.should_be_login_url()
 
 
-@pytest.mark.login_page
-def test_should_be_login_form(browser):
-    link = LoginPageLocators.LINK
-    page = LoginPage(browser, link)
-    page.open()
-    page.should_be_login_form()
 
-
-@pytest.mark.login_page
-def test_should_be_register_form(browser):
-    link = LoginPageLocators.LINK
-    page = LoginPage(browser, link)
-    page.open()
-    page.should_be_register_form()
-
-
-@pytest.mark.product_page
-def test_add_book_in_basket(browser):
-    link = ProductPageLocators.LINK2
-    page = ProductPage(browser, link)
-    page.open()
-    page.add_book_in_basket()
-    page.solve_quiz_and_get_code()
-    page.check_name_book()
-    page.check_price()
-    page.should_be_message_add()
 

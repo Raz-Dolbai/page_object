@@ -25,4 +25,5 @@ class ProductPageLocators():
     NAME_IN_MESSAGE = (By.CSS_SELECTOR, '.alert-success strong')
     All_TEXT_IN_MESSAGE = (By.CSS_SELECTOR, 'div#messages strong')
 
-
+class PromoLocators():
+    LINK = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer"

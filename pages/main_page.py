@@ -6,9 +6,11 @@ from selenium.webdriver.common.by import By
 class MainPage(BasePage):
     """Класс для работы с главной страницей веб-приложения"""
     def go_to_login_page(self):
+        """Нажимает на кнопку со ссылкой перехода на страницу авторизации и регистрации"""
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         login_link.click()
     def should_be_login_link(self):
+        """Проверяет наличие ссылки на страницу с авторизацией и регистрацией"""
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
 
 
