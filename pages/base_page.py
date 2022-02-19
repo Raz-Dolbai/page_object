@@ -70,3 +70,8 @@ class BasePage():
         """Проверяет наличие ссылки на страницу с авторизацией и регистрацией"""
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
+    def go_to_basket_page(self):
+        """Наживает на кнопку со ссылкой перехода на стринцу с корзиной"""
+        basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        basket_link.click()
+

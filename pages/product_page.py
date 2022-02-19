@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators
+from .locators import ProductPageLocators, BasketPageLocators
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
 from selenium.webdriver.support.wait import WebDriverWait
@@ -61,4 +61,5 @@ class ProductPage(BasePage):
         """Проверяет исчезнет ли элемент через заданное время"""
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             'Сообщение не исчезло через заданное время'
+
 

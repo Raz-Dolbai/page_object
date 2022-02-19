@@ -1,8 +1,16 @@
 from selenium.webdriver.common.by import By
 
+
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group")
+
+
+class BasketPageLocators():
+    TEXT_EMPTY_BASKET = (By.CSS_SELECTOR, "div#content_inner > p")
+    BASKET_ITEMS = (By.CSS_SELECTOR, '.basket-items')
+
 
 class MainPageLocators():
     """Класс где хранятся селекторы элементов MainPage"""
@@ -15,6 +23,7 @@ class LoginPageLocators():
     LINK = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
     LOGIN_FORM = (By.ID, 'login_form')
     REGISTER_FORM = (By.ID, 'register_form')
+
 
 class ProductPageLocators():
     """Класс где хранятся селекторы элементов Product Page"""
@@ -30,6 +39,7 @@ class ProductPageLocators():
     NAME_IN_MESSAGE = (By.CSS_SELECTOR, '.alert-success strong')
     All_TEXT_IN_MESSAGE = (By.CSS_SELECTOR, 'div#messages strong')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alert-success')
+
 
 class PromoLocators():
     LINK = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer"
