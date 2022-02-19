@@ -84,7 +84,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket.should_be_text_empty_basket()
     basket.should_not_be_items_in_basket()
 
-@pytest.mark.need_review
+
 @pytest.mark.user_can_add_book
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
@@ -94,6 +94,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.register_new_user(*page.create_email_password())
 
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = ProductPageLocators.LINK4
         page = ProductPage(browser, link)
