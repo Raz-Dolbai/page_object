@@ -1,5 +1,8 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class ProductPage(BasePage):
@@ -48,3 +51,14 @@ class ProductPage(BasePage):
         """Возвращает цену товара из сообщения"""
         price_book_message = self.browser.find_element(*ProductPageLocators.PRICE_IN_MESSAGE)
         return price_book_message.text
+
+    def should_not_be_success_message(self):
+        """Проверяет отсутствие сообщения о добавлении товара"""
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            'Сообщение есть, а не должно быть'
+
+    def should_message_success_disappeared(self):
+        """Проверяет исчезнет ли элемент через заданное время"""
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            'Сообщение не исчезло через заданное время'
+
