@@ -1,8 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators, BasketPageLocators
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
-from selenium.webdriver.support.wait import WebDriverWait
+from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
@@ -15,8 +12,8 @@ class ProductPage(BasePage):
 
     def should_be_message_add(self):
         """Проверяет есть ли сообщение после добавлении книги"""
-        assert self.is_element_present(
-            *ProductPageLocators.MESSAGE_ADD_BOOK), 'Сообщение о добавлении товара отсутствует'
+        assert self.is_element_present(*ProductPageLocators.MESSAGE_ADD_BOOK), \
+            'Сообщение о добавлении товара отсутствует'
 
     def check_price(self, price_card, price_message):
         """Сравнивает цену товара в карточке и в сообщении"""
@@ -61,5 +58,3 @@ class ProductPage(BasePage):
         """Проверяет исчезнет ли элемент через заданное время"""
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             'Сообщение не исчезло через заданное время'
-
-
