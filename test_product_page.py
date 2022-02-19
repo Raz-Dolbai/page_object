@@ -94,7 +94,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.register_new_user(*page.create_email_password())
 
-
+    @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
         link = ProductPageLocators.LINK4
         page = ProductPage(browser, link)
